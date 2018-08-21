@@ -4,7 +4,10 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 var OptimizeJsPlugin = require('optimize-js-plugin');
 
-module.exports = {
+module.exports = (env) => {
+  const environment =  env || 'production';
+  return {
+    mode: environment,
     entry: [
         'react-hot-loader/patch',
         './src/index.js'
